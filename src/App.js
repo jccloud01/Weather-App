@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Display from './Weather/Display';
+import conditionsData from './Weather/conditionsData';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const  App = () => {
+
+  const displays = conditionsData.map(display=><Display condition={display.condition} icon={display.icon} time={display.time}/>)
+
+	return (
+		<div className='App'>
+			<h1>My WeatherIcons App</h1>
+			<section class='displays'>
+        {displays}
+			</section>
+		</div>
+	);
+};
 
 export default App;
